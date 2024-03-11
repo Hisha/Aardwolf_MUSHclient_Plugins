@@ -337,7 +337,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	function weaponDupCheck(iw_weapname)
 		dbPathandName = GetInfo (66) ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_DBFile"))
 		local dupCheck = false
-		local sQL = "SELECT * FROM weapons WHERE weapname = " ..iw_weapname.. ";"
+		local sQL = "SELECT * FROM weapons WHERE weapname = '" ..iw_weapname.. "';"
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		for row in myDB:nrows(sQL) do dupCheck = true end
@@ -371,7 +371,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	function holdDupCheck(ih_holdname)
 		dbPathandName = GetInfo (66) ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_DBFile"))
 		local dupCheck = false
-		local sQL = "SELECT * FROM holditems WHERE hiName = " ..ih_holdname.. ";"
+		local sQL = "SELECT * FROM holditems WHERE hiName = '" ..ih_holdname.. "';"
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		for row in myDB:nrows(sQL) do dupCheck = true end
@@ -404,7 +404,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	
 	function shieldDupCheck(is_shieldname)
 		dbPathandName = GetInfo (66) ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_DBFile"))
-		local sQL = "SELECT * FROM shields WHERE shieldName = " ..is_shieldname.. ";"
+		local sQL = "SELECT * FROM shields WHERE shieldName = '" ..is_shieldname.. "';"
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		for row in myDB:nrows(sQL) do dupCheck = true end
