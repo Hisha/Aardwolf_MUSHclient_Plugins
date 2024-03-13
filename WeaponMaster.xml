@@ -52,6 +52,7 @@
 		Note(" wmSD          - Swaps to dual wield       ")
 		Note(" wmSU          - Swaps to shield           ")
         Note(" wmAlt         - Swaps to alternate weapon ")
+		Note(" wmPri         - Swaps to primary weapon   ")
         Note(" wmSwap        - Swaps to level correct    ")
         Note("                   weapon configuration    ")
         Note(" weaponAdd     - Add weapon to database    ")
@@ -193,6 +194,24 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
    sequence="100"
   >
   </alias>
+  <alias
+   match="^wmAlt$"
+   enabled="y"
+   regexp="y"
+   group="WeaponMaster"
+   script="altUp"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   match="^wmPri$"
+   enabled="y"
+   regexp="y"
+   group="WeaponMaster"
+   script="altDown"
+   sequence="100"
+  >
+  </alias>	
   <alias
    match="^weaponList$"
    enabled="y"
