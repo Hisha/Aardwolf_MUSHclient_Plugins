@@ -37,13 +37,13 @@
   <trigger
    enabled="y"
    group="WeaponMaster"
-   match="^* Remort transformation complete!$"
+   match="^\* Remort transformation complete!$"
    regexp="y"
    send_to="12"
    sequence="100"
   >
   <send>SetVariable("wm_CurrentLevel","1")</send>
-  </trigger>	
+  </trigger>
 </triggers>
 
 <!--  Aliases  -->
@@ -221,7 +221,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
    script="altDown"
    sequence="100"
   >
-  </alias>	
+  </alias>
   <alias
    match="^weaponList$"
    enabled="y"
