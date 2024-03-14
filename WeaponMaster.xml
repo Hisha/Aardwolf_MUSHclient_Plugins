@@ -34,6 +34,16 @@
   >
   <send>SetVariable("wm_CurrentLevel","%&lt;levelCurrent&gt;")</send>
   </trigger>
+  <trigger
+   enabled="y"
+   group="WeaponMaster"
+   match="^* Remort transformation complete!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable("wm_CurrentLevel","1")</send>
+  </trigger>	
 </triggers>
 
 <!--  Aliases  -->
