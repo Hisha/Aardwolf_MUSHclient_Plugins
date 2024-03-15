@@ -474,37 +474,40 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	end
 	
 	function altUp()
-		if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")) ~= "None" then
-			SetVariable("wm_AltUp", "Alt")
-			SaveState()
-			SendNoEcho ("take " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
-			SendNoEcho ("wield " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")))
-			SendNoEcho ("put " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
-		else
-			possibleAlt = getAltName()
-			if possibleAlt ~= "None" then
+		if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltUp")) ~= "Alt" then
+			if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")) ~= "None" then
 				SetVariable("wm_AltUp", "Alt")
-				SetVariable("wmAltCurrent", possibleAlt)
 				SaveState()
 				SendNoEcho ("take " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
 				SendNoEcho ("wield " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")))
 				SendNoEcho ("put " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
 			else
-				print("No Alt weapons found!")
+				possibleAlt = getAltName()
+				if possibleAlt ~= "None" then
+					SetVariable("wm_AltUp", "Alt")
+					SetVariable("wm_AltCurrent", possibleAlt)
+					SaveState()
+					SendNoEcho ("take " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
+					SendNoEcho ("wield " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")))
+					SendNoEcho ("put " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
+				else
+					print("No Alt weapons found!")
+				end
 			end
-			
 		end
 	end
 	
 	function altDown()
-		if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")) ~= "None" then
-			SetVariable("wm_AltUp", "Pri")
-			SaveState()
-			SendNoEcho ("take " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
-			SendNoEcho ("wield " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")))
-			SendNoEcho ("put " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
-		else
-			print("No Alt weapons set!")
+		if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltUp")) ~= "Pri" then
+			if Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")) ~= "None" then
+				SetVariable("wm_AltUp", "Pri")
+				SaveState()
+				SendNoEcho ("take " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
+				SendNoEcho ("wield " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_MHCurrent")))
+				SendNoEcho ("put " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_AltCurrent")).. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
+			else
+				print("No Alt weapons set!")
+			end
 		end
 	end
 	
