@@ -147,7 +147,7 @@ end
 Send("recite incompletehealing")</send>
   </alias>
   <alias
-   match="^setScribeSpellCount( .*){0,1}$"
+   match="^setScrollSpellCount( .*){0,1}$"
    enabled="y"
    expand_variables="y"
    group="Scriber"
