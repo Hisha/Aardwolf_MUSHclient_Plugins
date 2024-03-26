@@ -629,13 +629,13 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 		
 		local newShieldName = getShieldName()
 		local currentShieldName = Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_ShieldCurrent"))
-		if newOHName ~= currentOHName and shieldUp == "ShieldUp" then
+		if newShieldName ~= currentShieldName and shieldUp == "ShieldUp" then
 			SetVariable("wm_ShieldCurrent", newShieldName)
 			SaveState()
 			SendNoEcho("get " ..newShieldName.. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
 			SendNoEcho("wear " ..newShieldName)
 			SendNoEcho("put " ..currentShieldName.. " " ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_WeapBag")))
-		elseif newOHName ~= currentOHName and shieldUp == "ShieldDown" then
+		elseif newShieldName ~= currentShieldName and shieldUp == "ShieldDown" then
 			SetVariable("wm_ShieldCurrent", newShieldName)
 			SaveState()
 		end
