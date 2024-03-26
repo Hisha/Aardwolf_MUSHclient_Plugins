@@ -574,7 +574,6 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	function getShieldName()
 		dbPathandName = GetInfo (66) ..Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_DBFile"))
 		local modLevel = Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_CurrentLevel"))
-		local modLevel = Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_CurrentLevel"))
 		modLevel = modLevel + (Trim(GetPluginVariable ("d184f5b20159962807daf036","wm_Tier")) * 10)
 		local sQL = "SELECT shieldName FROM shields WHERE shieldLevel &lt;= " ..modLevel.. " ORDER BY shieldLevel DESC LIMIT 1"
 		
