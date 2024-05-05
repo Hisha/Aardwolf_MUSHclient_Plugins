@@ -15,7 +15,7 @@
    save_state="y"
    date_written="2024-05-04 15:48:10"
    requires="5.07"
-   version="1.0"
+   version="2.0"
    >
 
 </plugin>
@@ -24,6 +24,8 @@
 <!--  Triggers  -->
 
 <triggers>
+
+	<!-- HibPlugin Section -->
   <trigger
    enabled="y"
    group="HibPlugin"
@@ -44,6 +46,52 @@
   >
   <send>levelRaise("1")</send>
   </trigger>
+  <!-- HibPlugin Section -->
+  
+  <!-- Scriber Section -->
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   match="The magic enchantment has failed --- the scroll vanishes."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("scriber " ..getSpellName())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   match="You buy * a blank scroll from Mayvor, master of mystic permeations for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("put all.scroll " ..getBlankScrollBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   match="You have imbued a new spell to the scroll."
+   send_to="12"
+   sequence="100"
+  >
+  <send>setSpellCount(getSpellCount() + 1)
+Execute("evaluateScribe")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   match="You lost your concentration while trying to scribe the new magic."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("scribe " ..getSpellName())</send>
+  </trigger>
+  <!-- Scriber Section -->
+  
 </triggers>
 
 <!--  Aliases  -->
@@ -265,6 +313,159 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
   </alias>
   <!-- Weapon Master Section -->
   
+  <!-- Scriber Section -->
+  <alias
+   match="^scriber( .*){0,1}$"
+   enabled="y"
+   group="Scriber"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%1")
+	  Execute("resetScribeVariables")
+      Send("take scroll " ..getBlankScrollBag())
+      Send("hold scroll")
+      setSpellName(vItem)
+      Send("scribe " ..vItem)</send>
+  </alias>
+  <alias
+   match="^scriber buy$"
+   enabled="y"
+   group="Scriber"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("mapper goto 32467")
+      Send("buy " ..getScrollBuyNumber().. " 1")</send>
+  </alias>
+  <alias
+   match="^scriber -help$"
+   enabled="y"
+   group="Scriber"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Note("*****************Scriber Commands *****************")
+		Note("resetScribeVariables  - Reset some variables.     *")
+	    Note("scriber               - Command to scribe scroll. *")
+	    Note("scriber buy           - Go buy some scrolls.      *")
+	    Note("scriber -help         - This help screen.         *")
+	    Note("scriber -vars         - List of scriber variables.*")
+	    Note("setBlankScrollBag     - Bag for blank scrolls.    *")
+	    Note("setScrollBag          - Bag for completed scrolls.*")
+	    Note("setScrollBuyCount     - How many blank scrolls to *")
+	    Note("                          buy at a time.          *")
+	    Note("setScrollSpellCount   - How many spells added     *")
+	    Note("                          to a scroll.            *")
+	    Note("***************************************************")</send>
+  </alias>
+  <alias
+   match="^scriber -vars$"
+   enabled="y"
+   group="Scriber"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Note("**************Scriber Variables **************")
+		Note(" ScribeScrollBuyNumber: " ..getScrollBuyNumber())
+	    Note(" ScribeScrollBag:       " ..getScrollBag())
+	    Note(" ScribeSpellName:      " ..getSpellName())
+	    Note(" ScribeSpellsRequired: " ..getSpellCountRequired())
+	    Note(" ScribeBlankScrollBag:  " ..getBlankScrollBag())
+	    Note("**********************************************")</send>
+  </alias>
+  <alias
+   match="^rincon$"
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take incompletehealing " ..getScrollBag())
+Send("recite incompletehealing")</send>
+  </alias>
+  <alias
+   match="^setScribeSpellCount( .*){0,1}$"
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local NewCount = Trim("%1")
+setScribeSpellCount(NewCount)
+Note ("Number of Spells now set to: " ..NewCount)</send>
+  </alias>
+  <alias
+   match="^setScrollBag( .*){0,1}$"
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local NewBag = Trim("%1")
+setScrollBag(NewBag)
+Note ("Scroll Bag now set to: " ..NewBag)</send>
+  </alias>
+  <alias
+   match="^setBlankScrollBag( .*){0,1}$"
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local NewBag = Trim("%1")
+setBlankScrollBag(NewBag)
+Note ("Blank Scroll Bag now set to: " ..NewBag)</send>
+  </alias>
+  <alias
+   match="^setScrollBuyCount( .*){0,1}$"
+   enabled="y"
+   expand_variables="y"
+   group="Scriber"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local NewCount = Trim("%1")
+setScrollBuyCount(NewCount)
+Note ("Scroll Buy Number now set to: " ..NewCount)</send>
+  </alias>
+  <alias
+   match="^evaluateScribe$"
+   enabled="y"
+   regexp="y"
+   group="Scriber"
+   script="evalScroll"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   match="^resetScribeVariables$"
+   enabled="y"
+   regexp="y"
+   group="Scriber"
+   script="resetScribeVars"
+   sequence="100"
+  >
+  </alias>
+  <!-- Scriber Section -->
+  
 </aliases>
 <!--  Variables  -->
 
@@ -315,6 +516,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	function createHibDB()
 		tableCreateDBVer()
 		weaponMasterTableCreate()
+		scriberTableCreate()
 		tableCreateUserLevel()
 		tableCreateUserTier()
 	end
@@ -322,6 +524,7 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	function updateHibDB()
 		tableUpdateDBVer()
 		weaponMasterTableCreate()
+		scriberTableCreate()
 		tableCreateUserLevel()
 		tableCreateUserTier()
 	end
@@ -432,12 +635,27 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		myDB:exec[=[CREATE TABLE "wm_vars" (	"altCurrent"	TEXT NOT NULL,	"altUp"	TEXT NOT NULL,	"holdCurrent"	TEXT NOT NULL,	"mhCurrent"	TEXT NOT NULL,	"ohCurrent"	TEXT NOT NULL,	"shieldCurrent"	TEXT NOT NULL,	"shieldUp"	TEXT NOT NULL,	"weaponBag"	TEXT NOT NULL)]=]
-		myDB:exec[=[INSERT INTO wm_vars VALUES ('None','Pri','None','None','None','None','ShieldDown','None');]=]
+		local addVars = wm_AddVars()
+		if addVars == 0 then
+			myDB:exec[=[INSERT INTO wm_vars VALUES ('None','Pri','None','None','None','None','ShieldDown','None');]=]
+		end
 		myDB:exec[=[CREATE TABLE "weapons" (	"weapId"	INTEGER NOT NULL UNIQUE,	"weapName"	TEXT NOT NULL UNIQUE,	"weapLevel"	INTEGER NOT NULL,	"weapMainOff"	INTEGER NOT NULL,	"weapPriAlt"	INTEGER NOT NULL,	PRIMARY KEY("weapId" AUTOINCREMENT))]=]
 		myDB:exec[=[CREATE TABLE "holditems" (	"hiId"	INTEGER NOT NULL UNIQUE,	"hiName"	TEXT NOT NULL UNIQUE,	"hiLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("hiId" AUTOINCREMENT))]=]
 		myDB:exec[=[CREATE TABLE "shields" (	"shieldId"	INTEGER NOT NULL UNIQUE,	"shieldName"	TEXT NOT NULL UNIQUE,	"shieldLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("shieldId" AUTOINCREMENT))]=]
 		myDB:close()
 		print("weaponMaster tables created!")
+	end
+	
+	function wm_AddVars()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT COUNT(*) AS varCount FROM wm_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do varCOUNT = row.varCount end
+		returnInfo = varCOUNT
+		myDB:close()
+		
+		return returnInfo
 	end
 	
 	function getAltCurrent()
@@ -899,10 +1117,6 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 		local shieldUp = getShieldUp()
 		local newMHName = getMHName()
 		local currentMHName = getMHCurrent()
-		print(altUp)
-		print(shieldUp)
-		print(newMHName)
-		print(currentMHName)
 		if newMHName ~= currentMHName and altUp == "Pri" then
 			setMHCurrent(newMHName)
 			SendNoEcho("get " ..newMHName.. " " ..getWeaponBag())
@@ -1019,6 +1233,221 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
 	end
 	<!-- Weapon Master Section -->
 	
+  <!-- Scriber Section -->
+  function scriberTableCreate()
+		dbPathandName = databasePathName()
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec[=[CREATE TABLE "scriber_vars" (	"buyNumber"	INTEGER NOT NULL,	"scrollBag"	TEXT NOT NULL,	"spellCount"	INTEGER NOT NULL,	"spellName"	TEXT NOT NULL,	"spellCountRequired"	INTEGER NOT NULL,	"blankScrollBag"	TEXT NOT NULL)]=]
+		local addVars = scriber_AddVars()
+		if addVars == 0 then
+			myDB:exec[=[INSERT INTO scriber_vars VALUES (20,'None',0,'None',3,'None');]=]
+		end
+		myDB:close()
+		print("Scriber tables created!")
+	end
+	
+	function scriber_AddVars()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT COUNT(*) AS varCount FROM scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do varCOUNT = row.varCount end
+		returnInfo = varCOUNT
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function getScrollBuyNumber()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT buyNumber from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do scrollBuyNumber = row.buyNumber end
+		returnInfo = scrollBuyNumber
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setScrollBuyNumber(newBuyNumber)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE scriber_vars SET buyNumber = " ..newBuyNumber.. ";"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+	function getScrollBag()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT scrollBag from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do scrollBAG = row.scrollBag end
+		returnInfo = scrollBAG
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setScrollBag(newScrollBag)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE scriber_vars SET scrollBag = '" ..newScrollBag.. "';"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+	function getSpellCount()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT spellCount from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do spellCOUNT = row.spellCount end
+		returnInfo = spellCOUNT
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setSpellCount(newSpellCount)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE scriber_vars SET spellCount = " ..newSpellCount.. ";"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+	function getSpellName()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT spellName from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do spellNAME = row.spellName end
+		returnInfo = spellNAME
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setSpellName(newSpellName)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE scriber_vars SET spellName = '" ..newSpellName.. "';"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+	function getSpellCountRequired()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT spellCountRequired from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do spellCountREQUIRED = row.spellCountRequired end
+		returnInfo = spellCountREQUIRED
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function getBlankScrollBag()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT blankScrollBag from scriber_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do blankScrollBAG = row.blankScrollBag end
+		returnInfo = blankScrollBAG
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setBlankScrollBag(newScrollBag)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE scriber_vars SET blankScrollBag = '" ..newScrollBag.. "';"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+	function getHoldItem()
+		dbPathandName = databasePathName()
+		local shieldState = getShieldUp()
+		local returnInfo = 'None'
+		if shieldState == 'ShieldUp' then
+			returnInfo = getHoldCurrent()
+		elseif shieldState == 'ShieldDown' then
+			returnInfo = getOHCurrent()
+		end
+		
+		return returnInfo
+	end
+	
+	function resetScribeVars()
+	 	setSpellName('None')
+		setSpellCount(0)
+	end
+	
+	function evalScroll()
+		local spellCountRequired = getSpellCountRequired()
+		local currentSpellCount = getSpellCount()
+		
+		if currentSpellCount == 1 then
+			Note("#1")
+			if currentSpellCount ~= spellCountRequired then
+				Send("scribe " ..getSpellName())
+			else
+				SendNoEcho("hold " ..getHoldItem())
+				SendNoEcho("keep scroll")
+				SendNoEcho("put scroll " ..getScrollBag())
+				resetScribeVars()
+			end
+		elseif currentSpellCount == 2 then
+			Note("#2")
+			if currentSpellCount ~= spellCountRequired then
+				Send("scribe " ..getSpellName())
+			else
+				SendNoEcho("hold " ..getHoldItem())
+				SendNoEcho("keep scroll")
+				SendNoEcho("put scroll " ..getScrollBag())
+				resetScribeVars()
+			end
+		elseif currentSpellCount == 3 then
+			Note("#3")
+			if currentSpellCount ~= spellCountRequired then
+				Send("scribe " ..getSpellName())
+			else
+				SendNoEcho("hold " ..getHoldItem())
+				SendNoEcho("keep scroll")
+				SendNoEcho("put scroll " ..getScrollBag())
+				resetScribeVars()
+			end
+		elseif currentSpellCount == 4 then
+			Note("#4")
+			if currentSpellCount ~= spellCountRequired then
+				Send("scribe " ..getSpellName())
+			else
+				SendNoEcho("hold " ..getHoldItem())
+				SendNoEcho("keep scroll")
+				SendNoEcho("put scroll " ..getScrollBag())
+				resetScribeVars()
+			end
+		elseif currentSpellCount == 5 then
+			Note("#5")
+			SendNoEcho("hold " ..getHoldItem())
+			SendNoEcho("keep scroll")
+			SendNoEcho("put scroll " ..getScrollBag())
+			resetScribeVars()
+		end
+	end
+	
+  <!-- Scriber Section -->
 </script>
 
 </muclient>
