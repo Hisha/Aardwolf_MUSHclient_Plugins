@@ -479,6 +479,369 @@ Execute("evaluateScribe")</send>
   </trigger>
   <!-- LevelingMessages Section -->
   
+  <!-- PupMessages Section -->
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) just beat Aardwolf...again\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Red","Black","+ ","White","Black","P","LightGrey","Black","e","Red","Black","r","DarkRed","Black","dit","Red","Black","i","LightGrey","Black","o","White","Black","n","Red","Black"," +","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) culls more souls and watches them ignite as Sorrow stokes the inferno\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkBlue","Black","~","White","Black","-","Cyan","Black","/","DarkCyan","Black","P","Blue","Black","yr","DarkCyan","Black","e","Cyan","Black","\\\\","White","Black","-","DarkBlue","Black","~","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) amasses new power and leads the Dark Templars in new rituals to Dak'kon\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","(","White","Black","^","DarkBlue","Black","\\\\","White","Black","Rh","LightGrey","Black","ab","White","Black","do","DarkBlue","Black","/","White","Black","^","Blue","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Blood drips from (?P&lt;lpmName&gt;.*)'s weapon as they turn their gaze towards you\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","(","Yellow","Black","Re","Red","Black","tr","DarkRed","Black","ibu","Red","Black","ti","Yellow","Black","on","White","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: The genius (?P&lt;lpmName&gt;.*) has found another way to avoid remorting\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","(","Yellow","Black","Seekers","Magenta","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Stones fall from the high mountains as (?P&lt;lpmName&gt;.*) increases in strength\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","(&gt;","White","Black","Touchstone","Lime","Black","&lt;)","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) has achieved fuller understanding of the three pillars\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black","INFO: ","Yellow","Black","-=","Cyan","Black","Tanelorn","Yellow","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) puts more tape on his glasses as he nerds out even more\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","{","Cyan","Black","Twinlobe","Lime","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Blood gushes from the latest sacrifice as (?P&lt;lpmName&gt;.*) gains the approval of Xiuhtecuhtli\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black","^","DarkBlue","Black","X","DarkRed","Black",".","DarkBlue","Black","u","DarkRed","Black","{","DarkBlue","Black","N","DarkRed","Black","}","DarkBlue","Black","t","DarkRed","Black",".","DarkBlue","Black","I","DarkRed","Black","^","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) takes a step closer to Nirvana as (his|her|their) power increases\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Green","Black","\\\\}","LightGrey","Black","Tao","Green","Black","{/","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: The True Source floods (?P&lt;lpmName&gt;.*) with Power\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black","[","Red","Black","Ba'al","DarkRed","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: The mighty hero (?P&lt;lpmName&gt;.*) has increased in power\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: - No Clan - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Another tale about (?P&lt;lpmName&gt;.*) is written in the Book of Mabinogian\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Gray","Black","/","White","Black","|","Gray","Black","\\\\","DarkGreen","Black","Dr","White","Black","u","GoldenRod","Black","id","Gray","Black","/","White","Black","|","Gray","Black","\\\\","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Bloodied but victorious, (?P&lt;lpmName&gt;.*) rises and screams &quot;Veni Vidi Vici\!&quot;$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","&gt;","GoldenRod","Black","&gt;","Red","Black","&gt;","DarkRed","Black","-","White","Black","IMPERIUM","DarkRed","Black","-","Red","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Reflecting from constant battle, (?P&lt;lpmName&gt;.*)'s strength radiates within\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","][","White","Black","+","Lime","Black","][ ","White","Black","A","DarkGreen","Black","m","Lime","Black","az","DarkGreen","Black","o","White","Black","n","Lime","Black"," ][","White","Black","+","Lime","Black","][","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Orchestral music swells as (?P&lt;lpmName&gt;.*) completes another rousing verse in the epic Song of Aardwolf\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","[","Red","Black","B","Lime","Black","a","Cyan","Black","r","Yellow","Black","d","White","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: People burn and villages flee in terror as (?P&lt;lpmName&gt;.*) conquers more of the world\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Cyan","Black","o-}","Yellow","Black","HooK","Cyan","Black","{-o","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Rasputin inscribes (?P&lt;lpmName&gt;.*)'s name in the Word\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","-|","DarkCyan","Black","Dominion","White","Black","|-","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: A sword is drawn as Draconian fury pulses through (?P&lt;lpmName&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","-","Lime","Black","=","White","Black","*","Lime","Black",")","White","Black","Dragon","Lime","Black","(","White","Black","*","Lime","Black","=","White","Black","-","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) kneels in worship to Athena in celebration of another glorious victory\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Cyan","Black","[","Lime","Black","Emerald","Cyan","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: The very Fabric of Magic shudders as (?P&lt;lpmName&gt;.*)'s power increases\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","{","Red","Black","chaos","White","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: A magnificent light shines before (?P&lt;lpmName&gt;.*) leading them toward the virtue of Radience\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","&lt;","White","Black","-","Blue","Black",")","White","Black","light","Blue","Black","(","White","Black","-","Blue","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Mild mannered reporter (?P&lt;lpmName&gt;.*) leaps into a nearby phone booth, mistaking it for a dressing room\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","&lt;","DarkMagenta","Black","&lt;","GoldenRod","Black","|","White","Black","Gaardian","GoldenRod","Black","|","DarkMagenta","Black","&gt;","Magenta","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Not a sound is heard as (?P&lt;lpmName&gt;.*) crosses the nightingale floor and steals your last breath\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","{-=","DarkRed","Black","Masaki","White","Black","=-}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: Stendarr smiles as his holy champion, (?P&lt;lpmName&gt;.*), triumphs over evil\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","&lt;(","White","Black","=","Yellow","Black","Watchmen","White","Black","=","Blue","Black",")&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*)'s hammer shatters the earth, sending lightning across the land\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Yellow","Black","&lt;","Red","Black","*","Yellow","Black","&gt;","Red","Black","&lt;","Yellow","Black","|","Red","Black","Crimson","Yellow","Black","|","Red","Black","&gt;","Yellow","Black","&lt;","Red","Black","*","Yellow","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: There is rejoicing in the Temple as Crusader Hero (?P&lt;lpmName&gt;.*) increases in power\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","=","White","Black","Crusader","Magenta","Black","=","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: The planes quake as (?P&lt;lpmName&gt;.*) increases in power\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Red","Black","(","Green","Black","+","Blue","Black",")","White","Black","Cabal","Cyan","Black","(","Green","Black","+","GoldenRod","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) is at work close by, better watch your back\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black","INFO: ","Blue","Black","/","DarkBlue","Black","Shadokil","Blue","Black","/","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="PuP_Messages"
+   match="^INFO: You hear slight whispers as (?P&lt;lpmName&gt;.*) helps The Revolution grow\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black",":","White","Black",":","GoldenRod","Black",":","White","Black","LoquI","GoldenRod","Black",":","White","Black",":","DarkRed","Black",":","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
+  </trigger>
+  <!-- PupMessages Section -->
+  
 </triggers>
 
 <!--  Aliases  -->
@@ -883,6 +1246,37 @@ Note ("Level Messages disabled")
 </send>
   </alias>
   <!-- LevelingMessages Section -->
+  
+  <!-- PupMessages Section -->
+  <alias
+   match="PupMessagesOn"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>
+
+EnableTriggerGroup("PuP_Messages", true)
+Send ("Info Powerups")
+Note ("Pup Messages enabled")
+
+</send>
+  </alias>
+  <alias
+   match="PupMessagesOff"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>
+
+EnableTriggerGroup("PuP_Messages", false)
+Send ("Info Powerups")
+Note ("Pup Messages disabled")
+
+</send>
+  </alias>
+  <!-- PupMessages Section -->
 </aliases>
 <!--  Variables  -->
 
