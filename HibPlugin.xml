@@ -842,6 +842,223 @@ Execute("evaluateScribe")</send>
   </trigger>
   <!-- PupMessages Section -->
   
+  <!-- Ahunt Section -->
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You are almost certain that .+ is (north|east|south|west|down|up) from here\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+
+    Send ("%1")
+
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^There are traces of .+ having been here. Perhaps they left (north|east|south|west|down|up)\?$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+
+    Send ("%1")
+
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You are confident that .+ passed through here, heading (north|east|south|west|down|up)\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+
+    Send ("%1")
+
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You are certain that .+ is (north|east|south|west|down|up) from here\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+    Send ("%1")
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^.+ is here\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Note ("* * Target found! aHunt turning off * *")
+
+SetVariable ("AhuntStatus","off")
+
+SetVariable ("AhuntMob","")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^No-one in this area by that name\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntStatus","off")
+
+SetVariable ("AhuntMob","")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^The trail of .+ is confusing, but you're reasonably sure .+ headed (north|east|south|west|down|up)\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+
+    Send ("%1")
+
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You have no idea what you're doing, but maybe .+ left (north|east|south|west|down|up)$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    SetVariable ("AhuntLastDir","%1")
+
+    Send ("%1")
+
+    Send ("hunt " .. GetVariable("AhuntMob"))
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^Magical wards around .+ bounce you back\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if GetVariable("AhuntStatus") == 'on' then
+    Send ("open " .. GetVariable("AhuntLastDir"))
+
+    Send (GetVariable("AhuntLastDir"))
+
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You do not have a key for the door\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntMob","")
+
+SetVariable ("AhuntStatus","off")
+
+Note ("* * Ahunt Turned Off * *")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^No way\! You are still fighting\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntStatus","off")
+
+SetVariable ("AhuntMob","")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You see no .+ here\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntStatus","off")
+
+SetVariable ("AhuntMob","")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   match="^You seem unable to hunt that target for some reason\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local ahuntMob = GetVariable("AhuntMob")
+
+if GetVariable("AhuntStatus") == 'on' then
+
+   Send ("where " .. ahuntMob)
+
+end
+
+SetVariable ("AhuntStatus","off")
+
+SetVariable ("AhuntMob","")</send>
+  </trigger>
+  <!-- Ahunt Section -->
+  
 </triggers>
 
 <!--  Aliases  -->
@@ -1277,10 +1494,50 @@ Note ("Pup Messages disabled")
 </send>
   </alias>
   <!-- PupMessages Section -->
+  
+  <!-- Ahunt Section -->
+  <alias
+   match="^ahunt( .*){0,1}$"
+   enabled="y"
+   expand_variables="y"
+   group="Ahunt"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntMob","%1")
+
+Send ("hunt %1")
+
+SetVariable ("AhuntStatus","on")</send>
+  </alias>
+  <alias
+   match="^ahuntquit"
+   enabled="y"
+   group="Ahunt"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable ("AhuntMob","")
+
+SetVariable ("AhuntStatus","off")
+
+Note ("* * Ahunt Turned Off * *")</send>
+  </alias>
+  <!-- Ahunt Section -->
+
 </aliases>
 <!--  Variables  -->
 
 <variables>
+
+  <!-- Ahunt Section -->
+  <variable name="AhuntMob"></variable>
+  <variable name="AhuntLastDir">north</variable>
+  <variable name="AhuntStatus">off</variable>
+  <!-- Ahunt Section -->
+  
 </variables>
 
 <!--  Script  -->
