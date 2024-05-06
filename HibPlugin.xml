@@ -92,6 +92,393 @@ Execute("evaluateScribe")</send>
   </trigger>
   <!-- Scriber Section -->
   
+  <!-- LevelingMessages Section -->
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) scours the land in search of enlightenment, purging another (?P&lt;lpmLevel&gt;.*) souls by the cold steel of Apollyon's blade\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Red","Black","+ ","White","Black","P","LightGrey","Black","e","Red","Black","r","DarkRed","Black","dit","Red","Black","i","LightGrey","Black","o","White","Black","n","Red","Black"," +","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: A bell tolls in the darkness as (?P&lt;lpmName&gt;.*) leads (?P&lt;lpmLevel&gt;.*) souls to eternal misery\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkBlue","Black","~","White","Black","-","Cyan","Black","/","DarkCyan","Black","P","Blue","Black","yr","DarkCyan","Black","e","Cyan","Black","\\\\","White","Black","-","DarkBlue","Black","~","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The voice of Dak'kon leads (?P&lt;lpmName&gt;.*) to level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","(","White","Black","^","DarkBlue","Black","\\\\","White","Black","Rh","LightGrey","Black","ab","White","Black","do","DarkBlue","Black","/","White","Black","^","Blue","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Clans start to panic as raider (?P&lt;lpmName&gt;.*) obtains level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","(","Yellow","Black","Re","Red","Black","tr","DarkRed","Black","ibu","Red","Black","ti","Yellow","Black","on","White","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) has gained both knowledge and understanding, advancing in power to level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","(","Yellow","Black","Seekers","Magenta","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The black stone guides (?P&lt;lpmName&gt;.*) into gaining level (?P&lt;lpmLevel&gt;.*)\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","(&gt;","White","Black","Touchstone","Lime","Black","&lt;)","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) has attained a deeper understanding of the three pillars, ascending to level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black","INFO: ","Yellow","Black","-=","Cyan","Black","Tanelorn","Yellow","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) submits another (?P&lt;lpmLevel&gt;.*) brain samples for research in the name of Science\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","{","Cyan","Black","Twinlobe","Lime","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Screams echo through the mist as (?P&lt;lpmName&gt;.*) sacrifices (?P&lt;lpmLevel&gt;.*) captives to Xiuhtecuhtli\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black","^","DarkBlue","Black","X","DarkRed","Black",".","DarkBlue","Black","u","DarkRed","Black","{","DarkBlue","Black","N","DarkRed","Black","}","DarkBlue","Black","t","DarkRed","Black",".","DarkBlue","Black","I","DarkRed","Black","^","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The wind of duality strengthens, as (?P&lt;lpmName&gt;.*) aligns (?P&lt;lpmName2&gt;.*)self (?P&lt;lpmLevel&gt;.*) steps closer with Tao\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Green","Black","\\\\}","LightGrey","Black","Tao","Green","Black","{/","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) has gained favor in the eyes of the Dark One, and gains level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black","[","Red","Black","Ba'al","DarkRed","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) raises a level. Now up to level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: - No Clan - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: A sip of Kyrridwen's brew imparts guarded knowledge as (?P&lt;lpmName&gt;.*) gains level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Gray","Black","/","White","Black","|","Gray","Black","\\\\","DarkGreen","Black","Dr","White","Black","u","GoldenRod","Black","id","Gray","Black","/","White","Black","|","Gray","Black","\\\\","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) has achieved level (?P&lt;lpmLevel&gt;.*) of military training\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","&gt;","GoldenRod","Black","&gt;","Red","Black","&gt;","DarkRed","Black","-","White","Black","IMPERIUM","DarkRed","Black","-","Red","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Battle may have taken its toll but through constant training (?P&lt;lpmName&gt;.*) has obtained level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Lime","Black","][","White","Black","+","Lime","Black","][ ","White","Black","A","DarkGreen","Black","m","Lime","Black","az","DarkGreen","Black","o","White","Black","n","Lime","Black"," ][","White","Black","+","Lime","Black","][","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) frantically fumbles for a pen to write down a new haiku for gaining level (?P&lt;lpmLevel&gt;.*)\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","[","Red","Black","B","Lime","Black","a","Cyan","Black","r","Yellow","Black","d","White","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Another battalion falls before (?P&lt;lpmName&gt;.*) as (?P&lt;lpmName2&gt;.*) raises to level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Yellow","Black","|","White","Black","=x=","Lime","Black","BOOT","White","Black","=x=","Yellow","Black","|","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The pirates plunder nearby villages to celebrate (?P&lt;lpmName&gt;.*) reaching level (?P&lt;lpmLevel&gt;.*)\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Cyan","Black","o-}","Yellow","Black","HooK","Cyan","Black","{-o","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Constant conditioning has prepared (?P&lt;lpmName&gt;.*) for level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","-|","DarkCyan","Black","Dominion","White","Black","|-","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Dragons belch fire and Vorel exults as (?P&lt;lpmName&gt;.*) slays (?P&lt;lpmLevel&gt;.*) villains\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","-","Lime","Black","=","White","Black","*","Lime","Black",")","White","Black","Dragon","Lime","Black","(","White","Black","*","Lime","Black","=","White","Black","-","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Raising their sword in honor to Athena, (?P&lt;lpmName&gt;.*) attains level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Cyan","Black","[","Lime","Black","Emerald","Cyan","Black","]","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The Three Moons blaze in glory as (?P&lt;lpmName&gt;.*) reaches level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","{","Red","Black","chaos","White","Black","}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: The minions of darkness squeal in terror as (?P&lt;lpmName&gt;.*) reaches level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","&lt;","White","Black","-","Blue","Black",")","White","Black","light","Blue","Black","(","White","Black","-","Blue","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) successfully fends off another libel lawsuit! \(Full story on page (?P&lt;lpmLevel&gt;.*)\!\)$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","&lt;","DarkMagenta","Black","&lt;","GoldenRod","Black","|","White","Black","Gaardian","GoldenRod","Black","|","DarkMagenta","Black","&gt;","Magenta","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: (?P&lt;lpmName&gt;.*) is surrounded by the souls of (?P&lt;lpmLevel&gt;.*) legendary samurai and ninjas who bestow their approval\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","White","Black","{-=","DarkRed","Black","Masaki","White","Black","=-}","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Stendarr's angel sings praises to (?P&lt;lpmName&gt;.*) for attaining level (?P&lt;lpmLevel&gt;.*)\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Blue","Black","&lt;(","White","Black","=","Yellow","Black","Watchmen","White","Black","=","Blue","Black",")&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Nobody cares as the outcast (?P&lt;lpmName&gt;.*) reaches level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkBlue","Black","(","Magenta","Black","Outcast","DarkBlue","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Thor's hammer shatters the earth, sending lightning across the land as (?P&lt;lpmName&gt;.*) gains level (?P&lt;lpmLevel&gt;.*)\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Yellow","Black","&lt;","Red","Black","*","Yellow","Black","&gt;","Red","Black","&lt;","Yellow","Black","|","Red","Black","Crimson","Yellow","Black","|","Red","Black","&gt;","Yellow","Black","&lt;","Red","Black","*","Yellow","Black","&gt;","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Weapons gleam and trumpets sound from the Crusader's grand temple as (?P&lt;lpmName&gt;.*) leads (?P&lt;lpmLevel&gt;.*) Holy Knights on a quest for another holy artifact\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Magenta","Black","=","White","Black","Crusader","Magenta","Black","=","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Xarmaroch is pleased as (?P&lt;lpmName&gt;.*) prepares (?P&lt;lpmLevel&gt;.*) more followers for the Rebirth\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","Red","Black","(","Green","Black","+","Blue","Black",")","White","Black","Cabal","Cyan","Black","(","Green","Black","+","GoldenRod","Black",")","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Check your PK ranges, (?P&lt;lpmName&gt;.*)'s body count just hit (?P&lt;lpmLevel&gt;.*)\!$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black","INFO: ","Blue","Black","/","DarkBlue","Black","Shadokil","Blue","Black","/","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Level_Messages"
+   match="^INFO: Working in the shadows, (?P&lt;lpmName&gt;.*) gathers (?P&lt;lpmLevel&gt;.*) followers of The Revolution\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black",":","White","Black",":","GoldenRod","Black",":","White","Black","LoquI","GoldenRod","Black",":","White","Black",":","DarkRed","Black",":","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
+  </trigger>
+  <!-- LevelingMessages Section -->
+  
 </triggers>
 
 <!--  Aliases  -->
@@ -466,6 +853,36 @@ Note ("Scroll Buy Number now set to: " ..NewCount)</send>
   </alias>
   <!-- Scriber Section -->
   
+  <!-- LevelingMessages Section -->
+  <alias
+   match="LevelMessagesOn"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>
+
+EnableTriggerGroup("Level_Messages", true)
+Send ("Info Levels")
+Note ("Level Messages enabled")
+
+</send>
+  </alias>
+  <alias
+   match="LevelMessagesOff"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>
+
+EnableTriggerGroup("Level_Messages", false)
+Send ("Info Levels")
+Note ("Level Messages disabled")
+
+</send>
+  </alias>
+  <!-- LevelingMessages Section -->
 </aliases>
 <!--  Variables  -->
 
