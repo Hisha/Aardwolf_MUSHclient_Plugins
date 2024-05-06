@@ -15,7 +15,7 @@
    save_state="y"
    date_written="2024-05-04 15:48:10"
    requires="5.07"
-   version="2.0"
+   version="3.0"
    >
 
 </plugin>
@@ -1059,6 +1059,163 @@ SetVariable ("AhuntMob","")</send>
   </trigger>
   <!-- Ahunt Section -->
   
+  <!-- Potion Section -->
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Green Herbal Tea from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.tea")
+  Send("put all.tea " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Call upon spirits from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.spirits")
+  Send("put all.spirits " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * tankard of Rotgut from A shady-looking smuggler for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.rotgut")
+  Send("put all.rotgut " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Ancestral Power from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.ancestral")
+  Send("put all.ancestral " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Captain Morgan's Grog from A shady-looking smuggler for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.level200mana")
+  Send("put all.level200mana " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Moonlight Wine from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.moonlight")
+  Send("put all.moonlight " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Jade Elixir from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.jade")
+  Send("put all.jade " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Keg of Rum from Buffet Keeper for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.hookheal")
+  Send("put all.hookheal " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Freeze-Dried Astronaut Rum from Buffet Keeper for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.freeze-dried")
+  Send("put all.freeze-dried " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * Divine Refreshment from Sir Richard for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.crusader50moves")
+  Send("put all.crusader50moves " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * a Refreshing Idea from Jojobo for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.domiref")
+  Send("put all.domiref " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * (!(Griffon's Blood)!) from Aeleron for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.griffon")
+  Send("put all.griffon " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * (!(Eyes of the Wolf)!) from Aeleron for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.eyes")
+  Send("put all.eyes " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * (Seekers) Elixir of Maneuverability from Milo's Apprentice for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.seekers48spellup")
+  Send("put all.seekers48spellup " ..getPotionBag())</send>
+  </trigger>
+  <!-- Potion Section -->
+  
 </triggers>
 
 <!--  Aliases  -->
@@ -1526,10 +1683,429 @@ SetVariable ("AhuntStatus","off")
 Note ("* * Ahunt Turned Off * *")</send>
   </alias>
   <!-- Ahunt Section -->
+  
+  <!-- Potion Section -->
+  <alias
+   match="^potCheck$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("examine " ..getPotionBag())</send>
+  </alias>
+  <alias
+   match="^potList$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Note("*************** Potions ****************")
+        Note("KEYWORD           NAME            LEVEL*")
+        Note("***************** Mana *****************")
+        Note("*tea       Green Herbal Tea        60  *")
+        Note("*spirits   Call upon Spirits       90  *")
+        Note("*rotgut    tankard of Rotgut       100 *")
+        Note("*ances     Ancestral Power         150 *")
+        Note("*grog      Captain Morgan's Grog   200 *")
+        Note("*wine      Moonlight Wine          201 *")
+        Note("****************************************")
+        Note("***************** Heal *****************")
+        Note("*jade      Jade Elixir             60  *")
+        Note("*keg       Keg of Rum              60  *")
+        Note("*rum       Freeze-Dried Astronaut  201 *")
+        Note("****************************************")															
+        Note("*************** Refresh ****************")
+        Note("*cruref     Divine Refreshment     50  *")
+        Note("*domiref    Refreshing Idea       100  *")
+        Note("****************************************")															
+        Note("**************** Other *****************")
+        Note("*griff     Griffon Blood(Fly)      01  *")
+		Note("*eyes      Eyes of the Wolf        01  *")
+		Note("*manu      Seekers Maneuverability 48  *")
+		Note("****************************************")
+		Note)"* Add "Buy" to keyword to run to vendor*")
+		Note("****************************************")
+  </send>
+  </alias>
+  <alias
+   match="^setPotionsBag( .*){0,1}$"
+   enabled="y"
+   regexp="y"
+   group="potions"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setPotionBag(Trim("%1"))
+Note ("PotionsBag is now: %1")</send>
+  </alias>
+  <alias
+   match="^tea$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take tea " ..getPotionBag())
+Send("quaff tea")</send>
+  </alias>
+<alias
+   match="^spirits$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take spirits " ..getPotionBag())
+Send("quaff spirits")</send>
+  </alias>
+<alias
+   match="^rotgut$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take rotgut " ..getPotionBag())
+Send("quaff rotgut")</send>
+  </alias>
+<alias
+   match="^ances$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take ancestral " ..getPotionBag())
+Send("quaff ancestral")</send>
+  </alias>
+<alias
+   match="^grog$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take level200mana " ..getPotionBag())
+Send("quaff level200mana")</send>
+  </alias>
+<alias
+   match="^wine$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take wine " ..getPotionBag())
+Send("quaff wine")</send>
+  </alias>
+<alias
+   match="^jade$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take jade " ..getPotionBag())
+Send("quaff jade")</send>
+  </alias>
+<alias
+   match="^keg$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take hookheal " ..getPotionBag())
+Send("quaff hookheal")</send>
+  </alias>
+<alias
+   match="^rum$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take freeze-dried " ..getPotionBag())
+Send("eat freeze-dried")</send>
+  </alias>
+<alias
+   match="^cruref$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take crusader50movesf " ..getPotionBag())
+Send("quaff crusader50moves")</send>
+  </alias>
+<alias
+   match="^domiref$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take domiref " ..getPotionBag())
+Send("quaff domiref")</send>
+  </alias>
+<alias
+   match="^griff$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take griffon " ..getPotionBag())
+Send("quaff griffon")</send>
+  </alias>
+<alias
+   match="^eyes$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take eyes " ..getPotionBag())
+Send("quaff eyes")</send>
+  </alias>
+<alias
+   match="^manu$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take seekers48spellup " ..getPotionBag())
+Send("quaff seekers48spellup")</send>
+  </alias>
+  <alias
+   match="^teaBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. "  3")
+</send>
+  </alias>
+  <alias
+   match="^spiritsBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. "  7")
+</send>
+  </alias>
+  <alias
+   match="^rotgutBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 2292")
+      Send("buy " ..vItem.. "  2")
+</send>
+  </alias>
+  <alias
+   match="^ancesBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. "  2")
+</send>
+  </alias>
+  <alias
+   match="^grogBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 2292")
+      Send("buy " ..vItem.. "  1")
+</send>
+  </alias>
+  <alias
+   match="^wineBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. "  1")
+</send>
+  </alias>
+  <alias
+   match="^jadeBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. "  4")
+</send>
+  </alias>
+  <alias
+   match="^kegBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto nomap_A Bar On Deck_hook")
+      Send("buy " ..vItem.. "  14")
+</send>
+  </alias>
+  <alias
+   match="^rumBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto nomap_A Bar On Deck_hook")
+      Send("buy " ..vItem.. "  1")
+</send>
+  </alias>  
+  <alias
+   match="^crurefBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 31123")
+      Send("buy " ..vItem.. " 1")
+</send>
+  </alias>
+  <alias
+   match="^domirefBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 5865")
+      Send("buy " ..vItem.. " 5")
+</send>
+  </alias>
+  <alias
+   match="^griffBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 32476")
+      Send("buy " ..vItem.. "  13")
+</send>
+  </alias>
+  <alias
+   match="^eyesBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 32476")
+      Send("buy " ..vItem.. "  17")
+</send>
+  </alias>
+  <alias
+   match="^manuBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 14141")
+      Send("buy " ..vItem.. "  9")
+</send>
+  </alias>
+  <!-- Potion Section -->
 
 </aliases>
-<!--  Variables  -->
 
+<!--  Variables  -->
 <variables>
 
   <!-- Ahunt Section -->
@@ -1585,6 +2161,7 @@ Note ("* * Ahunt Turned Off * *")</send>
 		tableCreateDBVer()
 		weaponMasterTableCreate()
 		scriberTableCreate()
+		potionsTableCreate()
 		tableCreateUserLevel()
 		tableCreateUserTier()
 	end
@@ -1593,6 +2170,7 @@ Note ("* * Ahunt Turned Off * *")</send>
 		tableUpdateDBVer()
 		weaponMasterTableCreate()
 		scriberTableCreate()
+		potionsTableCreate()
 		tableCreateUserLevel()
 		tableCreateUserTier()
 	end
@@ -2516,6 +3094,40 @@ Note ("* * Ahunt Turned Off * *")</send>
 	end
 	
   <!-- Scriber Section -->
+  
+  <!-- Potion Section -->
+  function potionsTableCreate()
+		dbPathandName = databasePathName()
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec[=[CREATE TABLE "potions_vars" (	"potionBag"	TEXT NOT NULL UNIQUE,	PRIMARY KEY("potionBag"))]=]
+		myDB:exec[=[INSERT INTO potions_vars VALUES ('None');]=]
+		myDB:close()
+		print("potions table created!")
+	end
+	
+	function getPotionBag()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT potionBag from potions_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do potionBAG = row.potionBag end
+		returnInfo = potionBAG
+		myDB:close()
+		
+		return returnInfo
+	end
+	
+	function setPotionBag(newPotionBag)
+		dbPathandName = databasePathName()
+		local sQL = "UPDATE potions_vars SET potionBag = '" ..newPotionBag.. "';"
+
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		myDB:exec(sQL)
+		myDB:close()
+	end
+	
+  <!-- Potion Section -->
 </script>
 
 </muclient>
