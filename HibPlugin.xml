@@ -838,7 +838,7 @@ Note ("Scroll Buy Number now set to: " ..NewCount)</send>
 	function setWeaponBag(newWeaponBag)
 		dbPathandName = databasePathName()
 		local sQL = "UPDATE wm_vars SET weaponBag = '" ..newWeaponBag.. "';"
-		print(sQL)
+		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		myDB:exec(sQL)
 		myDB:close()
@@ -1047,7 +1047,7 @@ Note ("Scroll Buy Number now set to: " ..NewCount)</send>
 		dbPathandName = databasePathName()
 		local modLevel = getTieredLevel()
 		local sQL = "SELECT weapName FROM weapons WHERE weapLevel &lt;= " ..modLevel.. " AND weapMainOff = 1 AND weapPriAlt = 1 ORDER BY weapLevel DESC LIMIT 1;"
-		print(sQL)
+		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		for row in myDB:nrows(sQL) do mhCurrent = row.weapName end
 		returnInfo = mhCurrent
