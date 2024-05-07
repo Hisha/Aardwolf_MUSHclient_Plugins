@@ -2182,7 +2182,7 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "dbVer" (	"version"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("version"))]=]
+		myDB:exec[=[CREATE TABLE "dbVer" (	"version"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("version"));]=]
 		myDB:exec(sQL)
 		myDB:close()
 		print("HibPlugin db created!")
@@ -2194,7 +2194,7 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "dbVer" (	"version"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("version"))]=]
+		myDB:exec[=[CREATE TABLE "dbVer" (	"version"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("version"));]=]
 		myDB:exec(sQL)
 		myDB:close()
 		print("HibPlugin db created!")
@@ -2204,7 +2204,7 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "userLevel" (	"uLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("uLevel"))]=]
+		myDB:exec[=[CREATE TABLE "userLevel" (	"uLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("uLevel"));]=]
 		myDB:exec[=[INSERT INTO userLevel VALUES (1);]=]
 		myDB:close()
 		print("userLevel table created!")
@@ -2214,7 +2214,7 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "userTier" (	"uTier"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("uTier"))]=]
+		myDB:exec[=[CREATE TABLE "userTier" (	"uTier"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("uTier"));]=]
 		myDB:exec[=[INSERT INTO userTier VALUES (1);]=]
 		myDB:close()
 		print("userTier table created!")
@@ -2281,14 +2281,14 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "wm_vars" (	"altCurrent"	TEXT NOT NULL,	"altUp"	TEXT NOT NULL,	"holdCurrent"	TEXT NOT NULL,	"mhCurrent"	TEXT NOT NULL,	"ohCurrent"	TEXT NOT NULL,	"shieldCurrent"	TEXT NOT NULL,	"shieldUp"	TEXT NOT NULL,	"weaponBag"	TEXT NOT NULL)]=]
+		myDB:exec[=[CREATE TABLE "wm_vars" (	"altCurrent"	TEXT NOT NULL,	"altUp"	TEXT NOT NULL,	"holdCurrent"	TEXT NOT NULL,	"mhCurrent"	TEXT NOT NULL,	"ohCurrent"	TEXT NOT NULL,	"shieldCurrent"	TEXT NOT NULL,	"shieldUp"	TEXT NOT NULL,	"weaponBag"	TEXT NOT NULL);]=]
 		local addVars = wm_AddVars()
 		if addVars == 0 then
 			myDB:exec[=[INSERT INTO wm_vars VALUES ('None','Pri','None','None','None','None','ShieldDown','None');]=]
 		end
-		myDB:exec[=[CREATE TABLE "weapons" (	"weapId"	INTEGER NOT NULL UNIQUE,	"weapName"	TEXT NOT NULL UNIQUE,	"weapLevel"	INTEGER NOT NULL,	"weapMainOff"	INTEGER NOT NULL,	"weapPriAlt"	INTEGER NOT NULL,	PRIMARY KEY("weapId" AUTOINCREMENT))]=]
-		myDB:exec[=[CREATE TABLE "holditems" (	"hiId"	INTEGER NOT NULL UNIQUE,	"hiName"	TEXT NOT NULL UNIQUE,	"hiLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("hiId" AUTOINCREMENT))]=]
-		myDB:exec[=[CREATE TABLE "shields" (	"shieldId"	INTEGER NOT NULL UNIQUE,	"shieldName"	TEXT NOT NULL UNIQUE,	"shieldLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("shieldId" AUTOINCREMENT))]=]
+		myDB:exec[=[CREATE TABLE "weapons" (	"weapId"	INTEGER NOT NULL UNIQUE,	"weapName"	TEXT NOT NULL UNIQUE,	"weapLevel"	INTEGER NOT NULL,	"weapMainOff"	INTEGER NOT NULL,	"weapPriAlt"	INTEGER NOT NULL,	PRIMARY KEY("weapId" AUTOINCREMENT));]=]
+		myDB:exec[=[CREATE TABLE "holditems" (	"hiId"	INTEGER NOT NULL UNIQUE,	"hiName"	TEXT NOT NULL UNIQUE,	"hiLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("hiId" AUTOINCREMENT));]=]
+		myDB:exec[=[CREATE TABLE "shields" (	"shieldId"	INTEGER NOT NULL UNIQUE,	"shieldName"	TEXT NOT NULL UNIQUE,	"shieldLevel"	INTEGER NOT NULL UNIQUE,	PRIMARY KEY("shieldId" AUTOINCREMENT));]=]
 		myDB:close()
 		print("weaponMaster tables created!")
 	end
@@ -2885,7 +2885,7 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "scriber_vars" (	"buyNumber"	INTEGER NOT NULL,	"scrollBag"	TEXT NOT NULL,	"spellCount"	INTEGER NOT NULL,	"spellName"	TEXT NOT NULL,	"spellCountRequired"	INTEGER NOT NULL,	"blankScrollBag"	TEXT NOT NULL)]=]
+		myDB:exec[=[CREATE TABLE "scriber_vars" (	"buyNumber"	INTEGER NOT NULL,	"scrollBag"	TEXT NOT NULL,	"spellCount"	INTEGER NOT NULL,	"spellName"	TEXT NOT NULL,	"spellCountRequired"	INTEGER NOT NULL,	"blankScrollBag"	TEXT NOT NULL);]=]
 		local addVars = scriber_AddVars()
 		if addVars == 0 then
 			myDB:exec[=[INSERT INTO scriber_vars VALUES (20,'None',0,'None',3,'None');]=]
@@ -3101,10 +3101,25 @@ Send("quaff seekers48spellup")</send>
 		dbPathandName = databasePathName()
 		
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
-		myDB:exec[=[CREATE TABLE "potions_vars" (	"potionBag"	TEXT NOT NULL UNIQUE,	PRIMARY KEY("potionBag"))]=]
-		myDB:exec[=[INSERT INTO potions_vars VALUES ('None');]=]
+		myDB:exec[=[CREATE TABLE "potions_vars" (	"potionBag"	TEXT NOT NULL UNIQUE,	PRIMARY KEY("potionBag"));]=]
+		local addVars = potions_AddVars()
+		if addVars == 0 then
+			myDB:exec[=[INSERT INTO potions_vars VALUES ('None');]=]
+		end
 		myDB:close()
 		print("potions table created!")
+	end
+	
+	function potions_AddVars()
+		dbPathandName = databasePathName()
+		local sQL = "SELECT COUNT(*) AS varCount FROM potions_vars"
+		
+		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
+		for row in myDB:nrows(sQL) do varCOUNT = row.varCount end
+		returnInfo = varCOUNT
+		myDB:close()
+		
+		return returnInfo
 	end
 	
 	function getPotionBag()
