@@ -1729,7 +1729,7 @@ Note ("* * Ahunt Turned Off * *")</send>
 		Note("*eyes      Eyes of the Wolf        01  *")
 		Note("*manu      Seekers Maneuverability 48  *")
 		Note("****************************************")
-		Note)"* Add "Buy" to keyword to run to vendor*")
+		Note("* Add 'Buy' to keyword to run to vendor*")
 		Note("****************************************")
   </send>
   </alias>
