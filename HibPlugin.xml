@@ -2142,6 +2142,7 @@ Send("quaff seekers48spellup")</send>
 		myDB=assert(sqlite3.open(dbPathandName.. ".db"))
 		for row in myDB:nrows("SELECT name FROM sqlite_master WHERE type='table' AND name='dbVer';") do verTable = true end
 		if verTable == false then
+			myDB:close()
 			createHibDB()
 		else
 			for a in myDB:nrows(sQL) do versioN = a.version end
