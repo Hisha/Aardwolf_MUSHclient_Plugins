@@ -34,7 +34,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>levelRaise("%&lt;levelCurrent&gt;")</send>
+  <send>setLevel("%&lt;levelCurrent&gt;")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -44,7 +44,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>levelRaise("1")</send>
+  <send>setLevel("1")</send>
   </trigger>
   <!-- HibPlugin Section -->
   
