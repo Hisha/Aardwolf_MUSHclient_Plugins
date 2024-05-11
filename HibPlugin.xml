@@ -1185,6 +1185,17 @@ SetVariable ("AhuntMob","")</send>
    enabled="y"
    expand_variables="y"
    group="potions"
+   match="You buy * -= Smurfberries =- from Reflection of Radience for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.smurfberries")
+  Send("put all.smurfberries " ..getPotionBag())</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
    match="You buy * (!(Griffon's Blood)!) from Aeleron for * gold."
    send_to="12"
    sequence="100"
@@ -1723,6 +1734,7 @@ Note ("* * Ahunt Turned Off * *")</send>
         Note("*************** Refresh ****************")
         Note("*cruref     Divine Refreshment     50  *")
         Note("*domiref    Refreshing Idea       100  *")
+		Note("*smurf      Smurfberries          150  *")
         Note("****************************************")															
         Note("**************** Other *****************")
         Note("*griff     Griffon Blood(Fly)      01  *")
@@ -1876,6 +1888,18 @@ Send("quaff crusader50moves")</send>
   <send>Send("take domiref " ..getPotionBag())
 Send("quaff domiref")</send>
   </alias>
+<alias
+   match="^smurf$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take smurfberries " ..getPotionBag())
+Send("quaff smurfberries")</send>
+  </alias>  
 <alias
    match="^griff$"
    enabled="y"
@@ -2057,6 +2081,20 @@ Send("quaff seekers48spellup")</send>
   <send>local vItem = Trim("%&lt;itemCount&gt;")
       Execute("mapper goto 5865")
       Send("buy " ..vItem.. " 5")
+</send>
+  </alias>
+  <alias
+   match="^smurfBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 2339")
+      Send("buy " ..vItem.. " 1")
 </send>
   </alias>
   <alias
