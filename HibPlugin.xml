@@ -1185,12 +1185,12 @@ SetVariable ("AhuntMob","")</send>
    enabled="y"
    expand_variables="y"
    group="potions"
-   match="You buy * -= Smurfberries =- from Reflection of Radience for * gold."
+   match="You buy * FaetorAde from The Clurichaun for * gold."
    send_to="12"
    sequence="100"
   >
-  <send>Send("keep all.smurfberries")
-  Send("put all.smurfberries " ..getPotionBag())</send>
+  <send>Send("keep all.daoinerefresh")
+  Send("put all.daoinerefresh " ..getPotionBag())</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1734,7 +1734,7 @@ Note ("* * Ahunt Turned Off * *")</send>
         Note("*************** Refresh ****************")
         Note("*cruref     Divine Refreshment     50  *")
         Note("*domiref    Refreshing Idea       100  *")
-		Note("*smurf      Smurfberries          150  *")
+		Note("*daoref     FaetorAde             150  *")
         Note("****************************************")															
         Note("**************** Other *****************")
         Note("*griff     Griffon Blood(Fly)      01  *")
@@ -1873,7 +1873,7 @@ Send("eat freeze-dried")</send>
    send_to="12"
    sequence="100"
   >
-  <send>Send("take crusader50movesf " ..getPotionBag())
+  <send>Send("take crusader50moves " ..getPotionBag())
 Send("quaff crusader50moves")</send>
   </alias>
 <alias
@@ -1889,7 +1889,7 @@ Send("quaff crusader50moves")</send>
 Send("quaff domiref")</send>
   </alias>
 <alias
-   match="^smurf$"
+   match="^daoref$"
    enabled="y"
    expand_variables="y"
    group="potions"
@@ -1897,8 +1897,8 @@ Send("quaff domiref")</send>
    send_to="12"
    sequence="100"
   >
-  <send>Send("take smurfberries " ..getPotionBag())
-Send("quaff smurfberries")</send>
+  <send>Send("take daoinerefresh " ..getPotionBag())
+Send("quaff daoinerefresh")</send>
   </alias>  
 <alias
    match="^griff$"
@@ -2084,7 +2084,7 @@ Send("quaff seekers48spellup")</send>
 </send>
   </alias>
   <alias
-   match="^smurfBuy (?P&lt;itemCount&gt;.*)$"
+   match="^daorefBuy (?P&lt;itemCount&gt;.*)$"
    enabled="y"
    expand_variables="y"
    group="potions"
@@ -2093,8 +2093,8 @@ Send("quaff seekers48spellup")</send>
    sequence="100"
   >
   <send>local vItem = Trim("%&lt;itemCount&gt;")
-      Execute("mapper goto 2339")
-      Send("buy " ..vItem.. " 1")
+      Execute("mapper goto 30949")
+      Send("buy " ..vItem.. " 6")
 </send>
   </alias>
   <alias
@@ -2136,7 +2136,7 @@ Send("quaff seekers48spellup")</send>
   >
   <send>local vItem = Trim("%&lt;itemCount&gt;")
       Execute("mapper goto 14141")
-      Send("buy " ..vItem.. "  9")
+      Send("buy " ..vItem.. "  16")
 </send>
   </alias>
   <!-- Potion Section -->
