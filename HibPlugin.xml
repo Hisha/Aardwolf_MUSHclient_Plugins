@@ -1225,6 +1225,17 @@ SetVariable ("AhuntMob","")</send>
   <send>Send("keep all.seekers48spellup")
   Send("put all.seekers48spellup " ..getPotionBag())</send>
   </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   match="You buy * (Seekers) Elixir of Free Movement from Milo's Apprentice for * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("keep all.seekers17dissolve")
+  Send("put all.seekers17dissolve " ..getPotionBag())</send>
+  </trigger>
   <!-- Potion Section -->
   
 </triggers>
@@ -1739,6 +1750,7 @@ Note ("* * Ahunt Turned Off * *")</send>
         Note("**************** Other *****************")
         Note("*griff     Griffon Blood(Fly)      01  *")
 		Note("*eyes      Eyes of the Wolf        01  *")
+		Note("*fmove     Seekers Free Movement   17  *")
 		Note("*manu      Seekers Maneuverability 48  *")
 		Note("****************************************")
 		Note("* Add 'Buy' to keyword to run to vendor*")
@@ -1923,6 +1935,18 @@ Send("quaff griffon")</send>
   >
   <send>Send("take eyes " ..getPotionBag())
 Send("quaff eyes")</send>
+  </alias>
+  <alias
+   match="^fmove$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("take seekers17dissolve " ..getPotionBag())
+Send("quaff seekers17dissolve")</send>
   </alias>
 <alias
    match="^manu$"
@@ -2123,6 +2147,20 @@ Send("quaff seekers48spellup")</send>
   <send>local vItem = Trim("%&lt;itemCount&gt;")
       Execute("mapper goto 32476")
       Send("buy " ..vItem.. "  17")
+</send>
+  </alias>
+  <alias
+   match="^fmoveBuy (?P&lt;itemCount&gt;.*)$"
+   enabled="y"
+   expand_variables="y"
+   group="potions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local vItem = Trim("%&lt;itemCount&gt;")
+      Execute("mapper goto 14141")
+      Send("buy " ..vItem.. "  19")
 </send>
   </alias>
   <alias
