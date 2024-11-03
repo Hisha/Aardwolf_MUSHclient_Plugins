@@ -46,6 +46,17 @@
   >
   <send>setLevel("1")</send>
   </trigger>
+  <trigger
+   enabled="y"
+   group="HibPlugin"
+   match="^Congratulations! You are now a superhero!.*$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setLevel("201")</send>
+  </trigger>
+  
   <!-- HibPlugin Section -->
   
   <!-- Scriber Section -->
@@ -3219,7 +3230,7 @@ Send("quaff seekers48spellup")</send>
 		myDB:close()
 	end
 	
-  <!-- Potion Section -->
+  <!-- Potion Section -->  
 </script>
 
 </muclient>
