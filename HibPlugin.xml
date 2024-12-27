@@ -25,7 +25,7 @@
 
 <triggers>
 
-	<!-- HibPlugin Section -->
+	<!-- HibPlugin Trigger Section -->
   <trigger
    enabled="y"
    group="HibPlugin"
@@ -57,9 +57,9 @@
   <send>setLevel("201")</send>
   </trigger>
   
-  <!-- HibPlugin Section -->
+  <!-- HibPlugin Trigger Section -->
   
-  <!-- Scriber Section -->
+  <!-- Scriber Trigger Section -->
   <trigger
    enabled="y"
    expand_variables="y"
@@ -101,9 +101,9 @@ Execute("evaluateScribe")</send>
   >
   <send>Send("scribe " ..getSpellName())</send>
   </trigger>
-  <!-- Scriber Section -->
+  <!-- Scriber Trigger Section -->
   
-  <!-- LevelingMessages Section -->
+  <!-- LevelingMessages Trigger Section -->
   <trigger
    enabled="y"
    expand_variables="y"
@@ -488,9 +488,9 @@ Execute("evaluateScribe")</send>
   >
   <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black",":","White","Black",":","GoldenRod","Black",":","White","Black","LoquI","GoldenRod","Black",":","White","Black",":","DarkRed","Black",":","Red","Black", " - %&lt;lpmName&gt; (","White","Black","%&lt;lpmLevel&gt;","Red","Black",")")</send>
   </trigger>
-  <!-- LevelingMessages Section -->
+  <!-- LevelingMessages Trigger Section -->
   
-  <!-- PupMessages Section -->
+  <!-- PupMessages Trigger Section -->
   <trigger
    enabled="y"
    expand_variables="y"
@@ -851,9 +851,9 @@ Execute("evaluateScribe")</send>
   >
   <send>ColourNote("Red","Black", "INFO: ","DarkRed","Black",":","White","Black",":","GoldenRod","Black",":","White","Black","LoquI","GoldenRod","Black",":","White","Black",":","DarkRed","Black",":","Red","Black", " - %&lt;lpmName&gt; (","White","Black","PuP","Red","Black",")")</send>
   </trigger>
-  <!-- PupMessages Section -->
+  <!-- PupMessages Trigger Section -->
   
-  <!-- Ahunt Section -->
+  <!-- Ahunt Trigger Section -->
   <trigger
    enabled="y"
    expand_variables="y"
@@ -1068,9 +1068,9 @@ SetVariable ("AhuntStatus","off")
 
 SetVariable ("AhuntMob","")</send>
   </trigger>
-  <!-- Ahunt Section -->
+  <!-- Ahunt Trigger Section -->
   
-  <!-- Potion Section -->
+  <!-- Potion Trigger Section -->
   <trigger
    enabled="y"
    expand_variables="y"
@@ -1247,14 +1247,14 @@ SetVariable ("AhuntMob","")</send>
   <send>Send("keep all.seekers17dissolve")
   Send("put all.seekers17dissolve " ..getPotionBag())</send>
   </trigger>
-  <!-- Potion Section -->
+  <!-- Potion Trigger Section -->
   
 </triggers>
 
 <!--  Aliases  -->
 <aliases>
 
-	<!-- HibPlugin Section -->
+	<!-- HibPlugin Aliases Section -->
   <alias
    match="^hib -help$"
    enabled="y"
@@ -1269,6 +1269,13 @@ SetVariable ("AhuntMob","")</send>
 		Note(" hib -vars     - List of variable values    ")
 		Note(" hib_Level     - Set Player level variable  ")
 		Note(" hib_Tier      - Set Tier level variable    ")
+		Note("********************************************")
+		Note("***************Sections*********************")
+		Note(" Auto Hunt             - ahunt -help        ")
+		Note(" Level/Pup Messages    - pup -help          ")
+		Note(" Potions               - pot -help          ")
+		Note(" Scriber               - scriber -help      ")
+		Note(" Weapon Master         - wm -help           ")
 		Note("********************************************")</send>
   </alias>
   <alias
@@ -1305,9 +1312,9 @@ SetVariable ("AhuntMob","")</send>
   >
   <send>setTier(Trim("%1"))</send>
   </alias>
-  <!-- HibPlugin Section -->
+  <!-- HibPlugin Aliases Section -->
   
-  <!-- Weapon Master Section -->
+  <!-- Weapon Master Aliases Section -->
   <alias
    match="^wm -help$"
    enabled="y"
@@ -1468,9 +1475,9 @@ Note ("Weapons Bag is now: " ..Trim("%1"))</send>
    sequence="100"
   >
   </alias>
-  <!-- Weapon Master Section -->
+  <!-- Weapon Master Aliases Section -->
   
-  <!-- Scriber Section -->
+  <!-- Scriber Aliases Section -->
   <alias
    match="^scriber( .*){0,1}$"
    enabled="y"
@@ -1621,9 +1628,28 @@ Note ("Scroll Buy Number now set to: " ..NewCount)</send>
    sequence="100"
   >
   </alias>
-  <!-- Scriber Section -->
+  <!-- Scriber Aliases Section -->
   
-  <!-- LevelingMessages Section -->
+  <!-- LevelingMessages Aliases Section -->
+  <alias
+   match="^pup -help$"
+
+   enabled="y"
+   group="Level/Pup"
+   expand_variables="y"
+
+   regexp="y"
+   send_to="12"
+   sequence="100"
+
+  >
+  <send>    Note("*****************Level/Pup Commands ***************")
+	    Note(" LevelMessagesOn   - Turn Leveling Messages on.   *")
+	    Note(" LevelMessagesOff  - Turn Leveling Messages off.  *")
+	    Note(" PupMessagesOn     - Turn Pup Messages on.        *")
+	    Note(" PupMessagesOff    - Turn Pup Messages off.       *")
+	    Note("***************************************************")</send>
+  </alias>
   <alias
    match="LevelMessagesOn"
    enabled="y"
@@ -1652,9 +1678,9 @@ Note ("Level Messages disabled")
 
 </send>
   </alias>
-  <!-- LevelingMessages Section -->
+  <!-- LevelingMessages Aliases Section -->
   
-  <!-- PupMessages Section -->
+  <!-- PupMessages Aliases Section -->
   <alias
    match="PupMessagesOn"
    enabled="y"
@@ -1683,9 +1709,9 @@ Note ("Pup Messages disabled")
 
 </send>
   </alias>
-  <!-- PupMessages Section -->
+  <!-- PupMessages Aliases Section -->
   
-  <!-- Ahunt Section -->
+  <!-- Ahunt Aliases Section -->
   <alias
    match="^ahunt( .*){0,1}$"
    enabled="y"
@@ -1695,11 +1721,17 @@ Note ("Pup Messages disabled")
    send_to="12"
    sequence="100"
   >
-  <send>SetVariable ("AhuntMob","%1")
-
-Send ("hunt %1")
-
-SetVariable ("AhuntStatus","on")</send>
+  <send>local huntmob = Trim("%1")
+	if huntmob == '-help' then
+  	    Note("***************** Ahunt Commands ******************")
+	    Note(" ahunt *keyword*   - Hunt keyword.                *")
+	    Note(" ahuntquit         - Turn ahunt off.              *")
+	    Note("***************************************************")
+  	else
+  		SetVariable ("AhuntMob","%1")
+		Send ("hunt %1")
+		SetVariable ("AhuntStatus","on")
+	end</send>
   </alias>
   <alias
    match="^ahuntquit"
@@ -1715,9 +1747,27 @@ SetVariable ("AhuntStatus","off")
 
 Note ("* * Ahunt Turned Off * *")</send>
   </alias>
-  <!-- Ahunt Section -->
+  <!-- Ahunt Aliases Section -->
   
-  <!-- Potion Section -->
+  <!-- Potion Aliases Section -->
+  <alias
+   match="^pot -help$"
+
+   enabled="y"
+   group="potions"
+   expand_variables="y"
+
+   regexp="y"
+   send_to="12"
+   sequence="100"
+
+  >
+  <send>    Note("**************Potions Commands ***************")
+	    Note(" potCheck        - Show potion bag contents. *")
+	    Note(" potList         - Potion keyword list.      *")
+	    Note(" setPotionsBag   - Bag for potions.          *")
+	    Note("**********************************************")</send>
+  </alias>
   <alias
    match="^potCheck$"
    enabled="y"
@@ -2188,7 +2238,7 @@ Send("quaff seekers48spellup")</send>
       Send("buy " ..vItem.. "  16")
 </send>
   </alias>
-  <!-- Potion Section -->
+  <!-- Potion Aliases Section -->
 
 </aliases>
 
