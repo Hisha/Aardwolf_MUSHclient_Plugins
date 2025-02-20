@@ -2221,7 +2221,7 @@ Send("quaff seekers48spellup")</send>
   >
   <send>local vItem = Trim("%&lt;itemCount&gt;")
       Execute("mapper goto 14141")
-      Send("buy " ..vItem.. "  19")
+      Send("buy " ..vItem.. "  20")
 </send>
   </alias>
   <alias
